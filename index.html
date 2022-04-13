@@ -1,338 +1,577 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #114;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #114;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #114;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #114;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #114;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #114;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>
+      Why you should roof your building with metal? | Metal Roofing Chicago
+    </title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item">
+          <a href="https://www.metalroofingchicago.net/">Main</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://g.page/metal-roofing-chicago?share">Maps</a>
+        </li>
+        <li class="nav-item"><a href="./media.html">Media</a></li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section class="head">
+          <h1>Why you should roof your building with metal?</h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
-
-  .two-col div {
-    width: 100%;
-  }
-
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>Why you should roof your building with metal? | Metal Roofing Chicago</title>
-</head>
-
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="https://www.metalroofingchicago.net/">Main</a></li>
-      <li class="nav-item"><a href="https://g.page/metal-roofing-chicago?share">Maps</a></li>
-      <li class="nav-item"><a href="./media.html">Media</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main Content Container -->
-  <div class="container">
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section class="head">
-        <h1>Why you should roof your building with metal?</h1>
-      </section>
-
-      <section>
-        <iframe width="100%" height="500" src="https://www.youtube.com/embed/wMj4jeeQcQI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <br>
-        <div>
-            <p>Roofing a building with metal is a great way to keep it weather-proof and protected from the elements. Metal roofs are durable and long-lasting, and they can also help reduce energy costs by keeping the building cooler in summer and warmer in winter. Additionally, metal roofs are fire-resistant, meaning that they can help protect your property in the event of a fire.</p>
-        </div>
-          <a class="button-link"
-                href="https://www.metalroofingchicago.net/why-you-should-roof-your-building-with-metal/">Read Post</a>
-      </section>
-
-      <section>
-          <h2>Metal roofs are a great way to increase the value of your home</h2>
-          <p>Metal roofs are a great way to increase the value of your home. Metal roofs can be installed on both residential and commercial buildings, as well as for industrial purposes. They provide excellent insulation against heat and cold, reducing energy costs by up to 30%. Metal roofing is also an environmentally-friendly choice because it’s made from recycled materials that would otherwise end up in landfills or incinerators. The best part? A metal roof will last at least 50 years with only minor maintenance needed during that time! If you’re interested in increasing the value of your home, consider a metal roof.</p>
-      </section>
-
-      <section>
-          <div style="display:flex; justify-content:center">
-              <img src="https://lh3.googleusercontent.com/geougc/AF1QipMaBIuZKkI5Vqh9q8sgwkw_No2tS8pSGAFLKxG4=h400-no" alt="Metal Roofing Chicago, IL">
+        <section>
+          <iframe
+            width="100%"
+            height="500"
+            src="https://www.youtube.com/embed/wMj4jeeQcQI"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <br />
+          <div>
+            <p>
+              Roofing a building with metal is a great way to keep it
+              weather-proof and protected from the elements. Metal roofs are
+              durable and long-lasting, and they can also help reduce energy
+              costs by keeping the building cooler in summer and warmer in
+              winter. Additionally, metal roofs are fire-resistant, meaning that
+              they can help protect your property in the event of a fire.
+            </p>
           </div>
-          <br>
-          <h2 style="text-align: center">Metal roofs are durable and long-lasting</h2>
-          <hr>
-          <br>
-          <p>Metal roofs are becoming an increasingly popular option for homeowners and businesses alike. They have several benefits that other roofing materials simply cannot match. For one, metal roofs are incredibly durable and long-lasting. They can withstand even the harshest weather conditions, making them a great choice for climates that experience severe weather changes throughout the year.</p>
-          <p>In addition to their durability, metal roofs are also known for their energy efficiency. They reflect solar radiation and keep your home or business cooler in the summer months, which can save you a significant amount of money on your energy bills. Metal roofs are also recyclable, making them a more environmentally-friendly option than other roofing materials.</p>
-          <a class="button-link"
-                href="https://www.metalroofingchicago.net/">Visit Us</a>
-      </section>
+          <a
+            class="button-link"
+            href="https://www.metalroofingchicago.net/why-you-should-roof-your-building-with-metal/"
+            >Read Post</a
+          >
+        </section>
 
-      <section>
+        <section>
+          <h2>
+            Metal roofs are a great way to increase the value of your home
+          </h2>
+          <p>
+            Metal roofs are a great way to increase the value of your home.
+            Metal roofs can be installed on both residential and commercial
+            buildings, as well as for industrial purposes. They provide
+            excellent insulation against heat and cold, reducing energy costs by
+            up to 30%. Metal roofing is also an environmentally-friendly choice
+            because it’s made from recycled materials that would otherwise end
+            up in landfills or incinerators. The best part? A metal roof will
+            last at least 50 years with only minor maintenance needed during
+            that time! If you’re interested in increasing the value of your
+            home, consider a metal roof.
+          </p>
+        </section>
+
+        <section>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="https://lh3.googleusercontent.com/geougc/AF1QipMaBIuZKkI5Vqh9q8sgwkw_No2tS8pSGAFLKxG4=h400-no"
+              alt="Metal Roofing Chicago, IL"
+            />
+          </div>
+          <br />
+          <h2 style="text-align: center">
+            Metal roofs are durable and long-lasting
+          </h2>
+          <hr />
+          <br />
+          <p>
+            Metal roofs are becoming an increasingly popular option for
+            homeowners and businesses alike. They have several benefits that
+            other roofing materials simply cannot match. For one, metal roofs
+            are incredibly durable and long-lasting. They can withstand even the
+            harshest weather conditions, making them a great choice for climates
+            that experience severe weather changes throughout the year.
+          </p>
+          <p>
+            In addition to their durability, metal roofs are also known for
+            their energy efficiency. They reflect solar radiation and keep your
+            home or business cooler in the summer months, which can save you a
+            significant amount of money on your energy bills. Metal roofs are
+            also recyclable, making them a more environmentally-friendly option
+            than other roofing materials.
+          </p>
+          <a class="button-link" href="https://www.metalroofingchicago.net/"
+            >Visit Us</a
+          >
+        </section>
+
+        <section>
           <h2>Metal roofs are energy efficient</h2>
-          <p>Metal roofs are durable and energy-efficient. They can last for decades before showing any signs of wear, so the initial investment you put into a roof will pay off over time. Metal roofs are also more cost-effective to maintain than other types of roofing material because they don’t need to be replaced as often.</p>
-          <p>Metal roofs cover an area with lightweight materials that have a large surface area relative to their weight, which means they keep your home cool during the summer months by reflecting sunlight away from the interior of your house and keeping it insulated in winter months by acting like a giant blanket trapping heat inside your home. This makes metal roofs great for all climates! Metal roofs also work well in areas where there’s frequent rain or snow because they shed water and ice quickly and don’t accumulate moisture as other roofing materials can.</p>
-      </section>
+          <p>
+            Metal roofs are durable and energy-efficient. They can last for
+            decades before showing any signs of wear, so the initial investment
+            you put into a roof will pay off over time. Metal roofs are also
+            more cost-effective to maintain than other types of roofing material
+            because they don’t need to be replaced as often.
+          </p>
+          <p>
+            Metal roofs cover an area with lightweight materials that have a
+            large surface area relative to their weight, which means they keep
+            your home cool during the summer months by reflecting sunlight away
+            from the interior of your house and keeping it insulated in winter
+            months by acting like a giant blanket trapping heat inside your
+            home. This makes metal roofs great for all climates! Metal roofs
+            also work well in areas where there’s frequent rain or snow because
+            they shed water and ice quickly and don’t accumulate moisture as
+            other roofing materials can.
+          </p>
+        </section>
 
-      <section>
+        <section>
           <h2>Metal roofs come in a variety of colors and styles</h2>
-          <p>Metal roofs come in a variety of colors and styles. Metal is an excellent choice for those living in areas where it rains frequently, as metal roofs are resistant to corrosion from water. They also offer better insulation than traditional roofing materials like asphalt shingles or slate tiles. The color of the metal roof can have a significant impact on the overall look of your home’s exterior, so be sure to select a color that complements the style and design you’re going for! If you’re looking for an alternative to black steel, consider bright light-reflective metals such as white aluminum or silver zinc. These more vibrant options will give your home a more modern appearance while still protecting against harsh weather conditions.</p>
-          <p>Metal roofs come in many different shapes and sizes. If you are looking for a more traditional look, metal shingles might be the best option for you. These roofs have the same appearance as traditional asphalt shingles, but they are made of metal and are much more durable. They are also less likely to leak or corrode in wet environments. If you’re looking for a roof that will make your home stand out, consider a metal tile roof. These roofs come in many different styles, including Spanish, Italian, and the Mediterranean, and can add a lot of character to your home.</p>
-      </section>
+          <p>
+            Metal roofs come in a variety of colors and styles. Metal is an
+            excellent choice for those living in areas where it rains
+            frequently, as metal roofs are resistant to corrosion from water.
+            They also offer better insulation than traditional roofing materials
+            like asphalt shingles or slate tiles. The color of the metal roof
+            can have a significant impact on the overall look of your home’s
+            exterior, so be sure to select a color that complements the style
+            and design you’re going for! If you’re looking for an alternative to
+            black steel, consider bright light-reflective metals such as white
+            aluminum or silver zinc. These more vibrant options will give your
+            home a more modern appearance while still protecting against harsh
+            weather conditions.
+          </p>
+          <p>
+            Metal roofs come in many different shapes and sizes. If you are
+            looking for a more traditional look, metal shingles might be the
+            best option for you. These roofs have the same appearance as
+            traditional asphalt shingles, but they are made of metal and are
+            much more durable. They are also less likely to leak or corrode in
+            wet environments. If you’re looking for a roof that will make your
+            home stand out, consider a metal tile roof. These roofs come in many
+            different styles, including Spanish, Italian, and the Mediterranean,
+            and can add a lot of character to your home.
+          </p>
+        </section>
 
-      <section>
-          <div style="display:flex; justify-content:center">
-              <img src="https://www.metalroofingchicago.net/wp-content/uploads/2021/03/Metal-Roofing-Chicago-Top-768x432.jpg" alt="Metal Roofing Chicago, IL">
+        <section>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="https://www.metalroofingchicago.net/wp-content/uploads/2021/03/Metal-Roofing-Chicago-Top-768x432.jpg"
+              alt="Metal Roofing Chicago, IL"
+            />
           </div>
-          <br>
-          <h2 style="text-align: center">Installing a metal roof is a great way to reduce your carbon footprint</h2>
-          <hr>
-          <br>
-          <p>Installing a metal roof is one of the best ways to reduce your carbon footprint and help the environment. Metal roofs are made from recycled materials, so they’re environmentally friendly from the start. They also last much longer than traditional roofs, so you won’t have to replace them as often. And when you do need to replace them, the metal can be recycled again.</p>
-          <p>Installing a metal roof is also a great way to save energy. Metal roofs reflect sunlight, which keeps your home cooler in the summer. This can help you save on air conditioning costs. In the winter, metal roofs retain heat, which keeps your home warmer. This can help you save on heating costs.</p>
-      </section>
+          <br />
+          <h2 style="text-align: center">
+            Installing a metal roof is a great way to reduce your carbon
+            footprint
+          </h2>
+          <hr />
+          <br />
+          <p>
+            Installing a metal roof is one of the best ways to reduce your
+            carbon footprint and help the environment. Metal roofs are made from
+            recycled materials, so they’re environmentally friendly from the
+            start. They also last much longer than traditional roofs, so you
+            won’t have to replace them as often. And when you do need to replace
+            them, the metal can be recycled again.
+          </p>
+          <p>
+            Installing a metal roof is also a great way to save energy. Metal
+            roofs reflect sunlight, which keeps your home cooler in the summer.
+            This can help you save on air conditioning costs. In the winter,
+            metal roofs retain heat, which keeps your home warmer. This can help
+            you save on heating costs.
+          </p>
+        </section>
 
-      <section>
+        <section>
           <h2>Metal roofs can help reduce your insurance premiums</h2>
-          <p>It has long been known that metal roofs can help reduce your insurance premiums. The main reason for this is that metal roofs are much more durable than traditional roofing materials, such as asphalt shingles. A metal roof can last up to 50 years, while an asphalt shingle roof will only last about 15-20 years. This longer lifespan means that you will likely spend less money on <a href="https://www.metalroofingchicago.net/repair/">repairs</a> and <a href="https://www.metalroofingchicago.net/replacement/">replacements</a> over the lifetime of your home.</p>
-          <p>But what many people don’t know is that there are several other benefits to having a metal roof installed on your home. In addition to reducing your insurance premiums, a metal roof can also help keep your home cooler in the summer and warmer in the winter. This is because a metal roof reflects sunlight and heat away from your home, while an asphalt shingle roof absorbs sunlight and heat, which can cause your home to become overheated.</p>
-      </section>
+          <p>
+            It has long been known that metal roofs can help reduce your
+            insurance premiums. The main reason for this is that metal roofs are
+            much more durable than traditional roofing materials, such as
+            asphalt shingles. A metal roof can last up to 50 years, while an
+            asphalt shingle roof will only last about 15-20 years. This longer
+            lifespan means that you will likely spend less money on
+            <a href="https://www.metalroofingchicago.net/repair/">repairs</a>
+            and
+            <a href="https://www.metalroofingchicago.net/replacement/"
+              >replacements</a
+            >
+            over the lifetime of your home.
+          </p>
+          <p>
+            But what many people don’t know is that there are several other
+            benefits to having a metal roof installed on your home. In addition
+            to reducing your insurance premiums, a metal roof can also help keep
+            your home cooler in the summer and warmer in the winter. This is
+            because a metal roof reflects sunlight and heat away from your home,
+            while an asphalt shingle roof absorbs sunlight and heat, which can
+            cause your home to become overheated.
+          </p>
+        </section>
 
-      <section>
-          <div style="display:flex; justify-content:center">
-              <img src="https://lh3.googleusercontent.com/geougc/AF1QipNiFtHh_5zaGdIp5oAIULOY54E95UukrH5FvWJg=h400-no" alt="Metal Roofing Chicago, IL">
+        <section>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="https://lh3.googleusercontent.com/geougc/AF1QipNiFtHh_5zaGdIp5oAIULOY54E95UukrH5FvWJg=h400-no"
+              alt="Metal Roofing Chicago, IL"
+            />
           </div>
-          <br>
+          <br />
           <h2 style="text-align: center">Metal roofs are recyclable</h2>
-          <hr>
-          <br>
-          <p>Metal roofing is a great choice for homes in warmer climates because it helps keep the temperature cool and comfortable, which reduces the need for air conditioning. It also deflects heat from the sun and reflects light, blocking out 97% of UV rays that can fade furniture or damaged carpets. When you choose metal roofing, you are choosing to protect your home while making an environmentally responsible decision that can reduce your energy bills by up to 30%. There’s another benefit to metal roofs too – they’re recyclable!</p>
-          <p>There are many reasons why you should consider installing a metal roof on your home or business building. Metal roofs are extremely durable and long-lasting, they are energy efficient, come in a variety of colors and styles, and can help reduce your carbon footprint. In addition, metal roofs can also help reduce your insurance premiums and are recyclable and environmentally friendly. If you are looking for a new roofing system that will provide beauty, durability, and efficiency, then metal is the right choice for you. Contact Metal Roofing Chicago today to learn more about the benefits of metal roofs and schedule a free consultation. We will be happy to answer any questions you have and help you find the perfect metal roof for your home or business. Metal Roofing Chicago is the best choice for all your metal roofing needs!</p>
-          <a class="button-link"
-                href="https://google.com/maps/?cid=285178389849847829">Find Us Here!</a>
-      </section>
+          <hr />
+          <br />
+          <p>
+            Metal roofing is a great choice for homes in warmer climates because
+            it helps keep the temperature cool and comfortable, which reduces
+            the need for air conditioning. It also deflects heat from the sun
+            and reflects light, blocking out 97% of UV rays that can fade
+            furniture or damaged carpets. When you choose metal roofing, you are
+            choosing to protect your home while making an environmentally
+            responsible decision that can reduce your energy bills by up to 30%.
+            There’s another benefit to metal roofs too – they’re recyclable!
+          </p>
+          <p>
+            There are many reasons why you should consider installing a metal
+            roof on your home or business building. Metal roofs are extremely
+            durable and long-lasting, they are energy efficient, come in a
+            variety of colors and styles, and can help reduce your carbon
+            footprint. In addition, metal roofs can also help reduce your
+            insurance premiums and are recyclable and environmentally friendly.
+            If you are looking for a new roofing system that will provide
+            beauty, durability, and efficiency, then metal is the right choice
+            for you. Contact Metal Roofing Chicago today to learn more about the
+            benefits of metal roofs and schedule a free consultation. We will be
+            happy to answer any questions you have and help you find the perfect
+            metal roof for your home or business. Metal Roofing Chicago is the
+            best choice for all your metal roofing needs!
+          </p>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=285178389849847829"
+            >Find Us Here!</a
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d189963.52403939186!2d-87.733594!3d41.931982!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3f5283c109e3815!2sMetal%20Roofing%20Chicago!5e0!3m2!1sen!2sph!4v1649827391671!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">Metal%20Roofing%20Chicago,%20IL</iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d189963.52403939186!2d-87.733594!3d41.931982!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3f5283c109e3815!2sMetal%20Roofing%20Chicago!5e0!3m2!1sen!2sph!4v1649827391671!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            >Metal%20Roofing%20Chicago,%20IL</iframe
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.tripadvisor.com.ph/Attractions-g35805-Activities-Chicago_Illinois.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.tripadvisor.com.ph/Attractions-g35805-Activities-Chicago_Illinois.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://wgntv.com/" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://wgntv.com/"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.metalroofingchicago.net/" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.metalroofingchicago.net/"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./media.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./media.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <!-- WEBSITE EMBED -->
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/metalroofingchicago-03-22/"
+            >https://rank-fortress-digital-agency.github.io/metalroofingchicago-03-22/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://metalroofingchicago-03-22.s3-website-ap-southeast-1.amazonaws.com/"
+            >http://metalroofingchicago-03-22.s3-website-ap-southeast-1.amazonaws.com/</a
+          ><br />
+          <a target="_bLank" href="https://silver-torte-4c4ab8.netlify.app/"
+            >https://silver-torte-4c4ab8.netlify.app/</a
+          >
+        </section>
+      </div>
 
-        <!-- MEDIA ROOM -->
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li>
+              <a
+                href="https://www.facebook.com/Metal-Roofing-Chicago-102701258925901"
+                >Facebook</a
+              >
+            </li>
+            <li>
+              <a href="https://google.com/maps/?cid=285178389849847829"
+                >Google Page</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCH4vmDgerXbO5D-QHUCoOKw"
+                >Youtube</a
+              >
+            </li>
+            <li><a href="#">Pearltrees</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Google Site</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </section>
 
-        <!-- BUSINESS SITE -->
-       
-        <!-- PEARL TREES -->
-        
-        <!-- CLOUD STACK SITE -->
-        
-      </section>
-
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="https://www.metalroofingchicago.net/">Main</a></li>
+            <li>
+              <a href="https://g.page/metal-roofing-chicago?share">Maps</a>
+            </li>
+            <li><a href="./media.html">Media</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.facebook.com/Metal-Roofing-Chicago-102701258925901">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=285178389849847829">Google Page</a></li>
-          <li><a href="https://www.youtube.com/channel/UCH4vmDgerXbO5D-QHUCoOKw">Youtube</a></li>
-          <li><a href="#">Pearltrees</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="#">Google Site</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.metalroofingchicago.net/">Main</a></li>
-          <li><a href="https://g.page/metal-roofing-chicago?share">Maps</a></li>
-          <li><a href="./media.html">Media</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
